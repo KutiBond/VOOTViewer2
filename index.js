@@ -122,7 +122,7 @@ app.get('/show/:id', async (req, res) => {
   const seasonsInfo = await getSeasonInfo(showID);
   let page = Number(req.query.p || 1);
   var showsInfo = []
-  const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  const months = ["January",   "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
   seasonsInfo.forEach(async season => {
     const URL = `https://psapi.voot.com/jio/voot/v1/voot-web/content/generic/series-wise-episode?sort=episode:desc&id

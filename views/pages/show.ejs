@@ -13,9 +13,11 @@
     <div class="flex flex-col flex-wrap">
       <% seasons.forEach(function(season) { %>
     
-    <div class="flex flex-row justify-around bg-purple-900 bg-[url(<%- season.image %>)] opacity-50 bg-cover bg-no-repeat h-screen">
-        <div><h1 class="text-2xl text-white"><%- season.title %></h1></div>
-        <div><img src="<%- season.image %>" class="rounded-xl" width="320" height="180"/></div>
+    <div class="bg-purple-900 bg-[url(<%- season.image %>)] bg-cover bg-no-repeat h-screen opacity-40 px-20">
+<div class="flex flex-row justify-between mt-32 w-full">
+        <div><h1 class="text-4xl font-black text-white"><%- season.title %></h1> <div class="mt-4 text-gray-500"><p>Kan | Null</p></div></div>
+      <div><img src="<%- season.image %>" class="rounded-xl" width="620" height="180"></div>
+    </div>
     </div>
  <% }); %> 
         </div>
