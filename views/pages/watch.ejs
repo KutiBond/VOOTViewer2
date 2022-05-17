@@ -26,12 +26,13 @@
 
   <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
   <!-- <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script> -->
-
+<div class="w-screen h-screen">
   <video
     id="player"
     class="video-js vjs-theme-forest"
     controls
     preload="auto"
+    class="w-screen h-screen"
     poster="MY_VIDEO_POSTER.jpg"
   >
     <source src="<%- m3u8url %>" type='application/x-mpegURL' />
@@ -44,7 +45,7 @@
     </p>
   </video>
 
-    
+</div>
 
   <script src="https://unpkg.com/video.js@7/dist/video.min.js"></script>
 
@@ -67,10 +68,17 @@
       {
         default: 'auto'
       }
-    }
+    },
+      autoplay: true,
+      fill: true
     }
     const player = videojs('player', options)
 
+      player.on("play",
+    function () {
+        this.requestFullScreen();
+});
+      
     const shareOptions = {
   socials: ['fb', 'tw', 'reddit', 'gp', 'messenger', 'linkedin', 'telegram', 'whatsapp', 'viber', 'vk', 'ok', 'mail'],
  
