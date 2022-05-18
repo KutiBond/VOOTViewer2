@@ -166,6 +166,7 @@ app.get('/show/:id', async (req, res) => {
         "title": episode['shortTitle'],
         "image": episode['seo']['ogImage'],
         "telecastDate": telecastDate,
+        "isPremium": episode['isPremium'],
         "slug": `${serverUrl}/watch/?url=${episode['slug']}`,
       })
 

@@ -29,18 +29,26 @@
   <div class="flex flex-col rounded-xl m-2 bg-purple-900 pb-2">
     <div class="w-[320px] h-[180px] rounded-t-xl relative">
       <div class="absolute left-0 right-0 w-full h-full overflow-hidden rounded-t-xl">
-    <img src="<%- episode.image %>" class="w-full h-full rounded-t-xl hover:scale-110 transition-all duration-300 ease-in-out"></img>
+    <img src="<%- episode.image %>" class="absolute inset-0 bg-cover bg-center z-0"></img>
       </div>
-      <!-- <div class="absolute top-1/2 left-1/2 ">
+      <div class="opacity-100 duration-300 absolute inset-0 z-10 flex justify-center items-center text-6xl text-white">
         <button><svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-gray-300" viewBox="0 0 20 20" fill="currentColor">
   <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
 </svg>
         </button>
-      </div> -->
+      </div>
+      <% if (episode.isPremium) { %>
+            <div class="opacity-100 duration-300 absolute inset-0 z-10 flex justify-start items-end text-white font-semibold text-sm">
+              <div class="w-min h-min rounded-tr-lg p-1 bg-purple-500">
+Select
+                </div>
+      </div>
+              <% } %>
+      
     </div>
     <div class="mx-3 mt-2">
       
-    <p class="text-white text-lg font-semibold"><%- episode.title %></p>
+    <p class="text-white text-lg font-semibold break-all"><%- episode.title %></p>
      <p class="text-gray-400 text-sm font-normal"><%- episode.telecastDate %></p>
     </div>
   </div>
