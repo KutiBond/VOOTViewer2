@@ -66,7 +66,7 @@ app.get("/", (req, res) => {
 });
 
 app.get('/account', (req, res) => {
-  res.render('pages/account')
+  res.render('pages/account', {user: null})
 })
 
 // Search page
