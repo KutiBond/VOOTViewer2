@@ -53,6 +53,14 @@ app.get("/", (req, res) => {
       title: 'Mangala Gowri Maduwe',
       image: 'https://v3img.voot.com/resizeMedium,w_540,h_303/v3Storage/assets/mgm-1920x1080-1640963103325.jpg',
       slug: `${serverUrl}/show/100287`
+    }, {
+      title: 'Nannarasi Radhe',
+      image: 'https://v3img.voot.com/v3Storage/assets/nannarasi-radhe-1920x1080-1640978784924.jpg',
+      slug: `${serverUrl}/show/913691`
+    }, {
+      title: 'Nammane Yuvarani',
+      image: 'https://v3img.voot.com/v3Storage/assets/nammane-yuvrani-1920x1080-1640978706022.jpg',
+      slug: `${serverUrl}/show/100254`,
     }]
   })
 });
