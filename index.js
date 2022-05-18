@@ -56,7 +56,7 @@ app.get("/", (req, res) => {
     }, {
       title: 'Nannarasi Radhe',
       image: 'https://v3img.voot.com/v3Storage/assets/nannarasi-radhe-1920x1080-1640978784924.jpg',
-      slug: `${serverUrl}/show/913691`
+      slug: `${serverUrl}/show/148872`
     }, {
       title: 'Nammane Yuvarani',
       image: 'https://v3img.voot.com/v3Storage/assets/nammane-yuvrani-1920x1080-1640978706022.jpg',
@@ -64,6 +64,10 @@ app.get("/", (req, res) => {
     }]
   })
 });
+
+app.get('/account', (req, res) => {
+  res.render('pages/account')
+})
 
 // Search page
 app.get("/search", async (req, res) => {
@@ -209,7 +213,7 @@ app.get("/watch", async (req, res) => {
 
     // res.setHeader("content-type", "application/x-mpegURL");
     console.log(info.formats[info.formats.length - 1].url)
-    return res.render('pages/watch', { user: false, m3u8url: info.formats[info.formats.length - 2].url })
+    return res.render('pages/watch', { user: false, m3u8url: info.formats[info.formats.length - 2].url, vootURL: req.query.url })
 
   } catch (error) {
     console.log(error.toString())

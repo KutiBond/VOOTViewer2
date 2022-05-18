@@ -108,6 +108,12 @@ player.share(shareOptions);
     seekStep: 5,
     enableModifiersForNumbers: false
   });
+
+      player.on('error', () => {
+    console.log(player.error); //Gives MEDIA_ERR_SRC_NOT_SUPPORTED error
+        alert('This episode might be premium. Please login with your Voot Select Account!')
+        window.open('<%- vootURL %>')
+})
   </script>
     <footer><%- include('../partials/footer'); %></footer> 
   </body>
