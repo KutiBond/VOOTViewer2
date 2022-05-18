@@ -37,9 +37,22 @@
 </div>
     <script>
       var vootLoginBtn = document.getElementById('vootLoginBtn');
+
+ 
+      
       vootLoginBtn.addEventListener('click', () => {
-        var tab = window.open('https://www.voot.com/subscription', 'popup_window', 'width=400, height=800')
-        // Set a cokkie
+        var tab = window.open('https://www.voot.com/subscription', 'popup_window', 'width=400, height=800, toolbar=0')
+        tab.onunload = function() {
+
+        var loginConfrm = confirm('Did you login to voot?')
+        if (loginConfirm) {
+          setCookie('vootLogin', 'true', 30)   
+          alert('Marked as loggedin!')
+        } else {
+          alert('Please relogin to Voot!')
+        }
+    
+};
       })
     </script>
     <footer><%- include('../partials/footer'); %></footer>
