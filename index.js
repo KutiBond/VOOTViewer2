@@ -5,6 +5,7 @@ const morgan = require("morgan");
 const fs = require("fs")
 const fetch = require('node-fetch')
 
+
 const app = express();
 app.use(morgan('dev'))
 
@@ -86,10 +87,7 @@ async function getSeasonInfo(id) {
   const URL = `https://psapi.voot.com/jio/voot/v1/voot-web/content/generic/season-by-show?sort=season%3Adesc&id=${seasonID}&responseType=common`
 
   // with await
-  let apiJSON = await fetch(URL, {
-    method: 'get',
-    headers: { 'Content-Type': 'application/json', 'Content-Version': 'V4' }
-  });
+  let apiJSON = await fetch(URL);
   apiJSON = await apiJSON.json()
 
   let seasons = apiJSON['result']
@@ -129,7 +127,14 @@ app.get('/show/:id', async (req, res) => {
 =${season.id}&responseType=common&page=${page}`;
     console.log(URL)
     // with await
-    let apiJSON = await fetch(URL);
+      var headers = {}
+  headers['Content-Version'] = 'V4'
+  headers['User-Agent'] = user_agent
+  
+  let apiJSON = await fetch(URL, {
+    method: 'get',
+    headers: headers
+  });
     apiJSON = await apiJSON.json();
     
     console.log(apiJSON)
