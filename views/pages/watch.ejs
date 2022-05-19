@@ -111,8 +111,12 @@ player.share(shareOptions);
 
       player.on('error', () => {
     console.log(player.error); //Gives MEDIA_ERR_SRC_NOT_SUPPORTED error
-        alert('This episode might be premium. Please login with your Voot Select Account!')
-        window.open('<%- vootURL %>')
+        if (getCookie('vootLogin') === 'true') {
+          alert('Opening voot in a new tab...')
+          window.open('<%- vootURL %>')
+        } else {
+          alert('Please login to your voot select account to watch premium shows!')
+        }
 })
   </script>
     <footer><%- include('../partials/footer'); %></footer> 
