@@ -56,8 +56,11 @@
         if (loginConfirm) {
           setCookie('vootLogin', 'true', 30)   
           alert('Marked as loggedin!')
+          history.back();
         } else {
+          setCookie('vootLogin', 'false', 30)   
           alert('Please relogin to Voot!')
+          location.reload();
         }
     
 };
