@@ -44,6 +44,7 @@
       >
     </p>
   </video>
+    <iframe class="w-full h-full border-none m-0 p-0 hidden" src="https://voot.com" id="vootFrame"></iframe>
 
 </div>
 
@@ -109,11 +110,14 @@ player.share(shareOptions);
     enableModifiersForNumbers: false
   });
 
+      const vootFrame = document.getElementById('vootFrame')
+      
       player.on('error', () => {
     console.log(player.error); //Gives MEDIA_ERR_SRC_NOT_SUPPORTED error
         if (getCookie('vootLogin') === 'true') {
-          alert('Opening voot in a new tab...')
-          window.open('<%- vootURL %>')
+          player.dispose();
+          vootFrame.classList.remove('hidden');
+          vootFrame.src = '<%- vootURL %>'
         } else {
           alert('Please login to your voot select account to watch premium shows!')
         }
