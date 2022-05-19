@@ -43,14 +43,16 @@
       vootLoginBtn.addEventListener('click', () => {
         var tab = window.open('https://www.voot.com/subscription', 'popup_window', 'width=400, height=800, toolbar=0')
         var pollTimer = window.setInterval(function() {
-    if (win.closed !== false) { // !== is required for compatibility with Opera
+    if (tab.closed !== false) { // !== is required for compatibility with Opera
         window.clearInterval(pollTimer);
         setLoginInfo();
     }
 }, 200);
+      });
+        
         function setLoginInfo() {
 
-        var loginConfrm = confirm('Did you login to voot?')
+        var loginConfirm = confirm('Did you login to voot?')
         if (loginConfirm) {
           setCookie('vootLogin', 'true', 30)   
           alert('Marked as loggedin!')
