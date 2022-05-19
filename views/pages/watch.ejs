@@ -110,18 +110,21 @@ player.share(shareOptions);
     enableModifiersForNumbers: false
   });
 
-      const vootFrame = document.getElementById('vootFrame')
-      
       player.on('error', () => {
-    console.log(player.error); //Gives MEDIA_ERR_SRC_NOT_SUPPORTED error
+      const vootFrame = document.getElementById('vootFrame')
+
         if (getCookie('vootLogin') === 'true') {
+          if (!mobileAndTabletCheck()) {
           player.dispose();
           vootFrame.classList.remove('hidden');
-          vootFrame.src = '<%- vootURL %>'
+          vootFrame.src = '<%- vootURL %>' 
+          } else {
+            window.open('<%- vootURL %>', '_blank')
+          }
         } else {
           alert('Please login to your voot select account to watch premium shows!')
         }
-})
+      })
   </script>
     <footer><%- include('../partials/footer'); %></footer> 
   </body>
