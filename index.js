@@ -50,6 +50,10 @@ app.get("/", (req, res) => {
       image: 'https://v3img.voot.com/resizeMedium,w_540,h_303/v3Storage/assets/kannadathi-1920x0180-1640962798731.jpg',
       slug: `${serverUrl}/show/190934`
     }, {
+      title: 'Doresani',
+      image: 'https://v3img.voot.com/v3Storage/assets/doresani-1920x1080-1640962169989.jpg',
+      slug: `${serverUrl}/show/192269`
+    }, {
       title: 'Mangala Gowri Maduwe',
       image: 'https://v3img.voot.com/resizeMedium,w_540,h_303/v3Storage/assets/mgm-1920x1080-1640963103325.jpg',
       slug: `${serverUrl}/show/100287`
